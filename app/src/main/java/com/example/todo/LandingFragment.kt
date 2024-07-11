@@ -10,14 +10,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.example.todo.adapter.NoteRecyclerViewAdapter
 import com.example.todo.databinding.FragmentLandingBinding
-import com.example.todo.model.Note
-import com.example.todo.repository.NoteRepository
 import com.example.todo.view.NoteViewModel
-import java.time.LocalDate
-
 class LandingFragment : Fragment() {
     private lateinit var binding: FragmentLandingBinding
-    private lateinit var repository: NoteRepository
     private lateinit var adapter: NoteRecyclerViewAdapter
     private lateinit var viewModel: NoteViewModel
 
@@ -45,7 +40,6 @@ class LandingFragment : Fragment() {
 
     private fun initViewModel() {
         viewModel = (activity as MainActivity).viewModel
-        binding.lifecycleOwner = this
         binding.viewModel = viewModel
     }
 

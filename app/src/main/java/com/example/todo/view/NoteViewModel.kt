@@ -14,10 +14,12 @@ class NoteViewModel(private val repository: NoteRepository) : ViewModel() {
     var title = MutableLiveData<String>()
     var body = MutableLiveData<String>()
     var date = MutableLiveData<String>()
+    var latitude = MutableLiveData<Double>(0.0)
+    var longitude = MutableLiveData<Double>(0.0)
 
     val notes = repository.getNotes()
 
-    fun clear() {
+    private fun clear() {
         id.value = 0
         title.value = ""
         body.value = ""
@@ -64,8 +66,8 @@ class NoteViewModel(private val repository: NoteRepository) : ViewModel() {
             title.value!!,
             body.value!!,
             LocalDate.now(),
-            0.0,
-            0.0
+            longitude.value!!,
+            latitude.value!!
         )
     }
 }
